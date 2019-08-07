@@ -18,8 +18,9 @@ repair/update the settings and applications on your PC.
 
 ### Prerequisities
 
-* A clean Windows 10 PC or one installed using this script. 
+* A clean Windows 10 PC or one installed using this script
 * Local Administrator rights on the PC
+* Edge (to use with Chrome or Firefox, you eed a click-once plugin)
 
 ### Installing
 
@@ -39,3 +40,14 @@ To run a recipe script, click a link in the table below from your target machine
 password. You must manually create a non-root user via `$ sudo adduser [USERNAME] sudo` with a non-blank password.
 Use this user going forward. For more info on WSL please refer to the [documentation](https://docs.microsoft.com/en-us/windows/wsl/about).
 2. If you have licensed software, contact your manager to be registered for a license.
+
+### Known Issues
+
+* Boxstarter's autologin doesn't work properly with multiple user accounts (see https://github.com/chocolatey/boxstarter/issues/318).
+As a  result, the user currently needs to login manually as local admin with 
+password when the PC is restarted during the install process.
+
+### Todos
+
+* Some packages should perhaps not be upgraded through Chocolatey; e.g., IntelliJ has some
+issues, etc. Anything that will auto-update can possible 
