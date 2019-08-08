@@ -39,7 +39,8 @@ To run a recipe script, click a link in the table below from your target machine
 1. The file setup installs WSL with Ubuntu, but the default installation only sets up a root user with a blank
 password. You must manually create a non-root user via `$ sudo adduser [USERNAME] sudo` with a non-blank password.
 Use this user going forward. For more info on WSL please refer to the [documentation](https://docs.microsoft.com/en-us/windows/wsl/about).
-2. If you have installed licensed software, contact your manager to have your user license  egistered.
+2. Set up VPN connections as described in your welcome e-mail.
+3. If you have installed licensed software, contact your manager to have your user license  egistered.
 
 ### Known Issues
 
