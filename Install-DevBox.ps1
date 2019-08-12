@@ -15,6 +15,8 @@ $helperUri = $helperUri.Substring(0, $helperUri.LastIndexOf("/"))
 $helperUri += "/scripts"
 write-host "helper script base URI is $helperUri"
 
+if (-not (Test-Path env:ChocolateyToolsLocation)) { $env:ChocolateyToolsLocation = 'C:\Utils' }
+
 function executeScript {
     Param ([string]$script)
     write-host "executing $helperUri/$script ..."
