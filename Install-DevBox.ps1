@@ -1,36 +1,43 @@
-# Description: Boxstarter Script
-# Author: Elhub
-# Common Setup for an Elhub DevBox.
+<#
+.SYNOPSIS
+Install/Upgrade Script for Elhub Developer PCs
 
-Disable-UAC
+.DESCRIPTION
+This script installs and upgrades a standard Elhub DevBox.
 
-# Get the base URI path from the ScriptToCall value
-$bstrappackage = "-bootstrapPackage"
-$helperUri = $Boxstarter['ScriptToCall']
-$strpos = $helperUri.IndexOf($bstrappackage)
-$helperUri = $helperUri.Substring($strpos + $bstrappackage.Length)
-$helperUri = $helperUri.TrimStart("'", " ")
-$helperUri = $helperUri.TrimEnd("'", " ")
-$helperUri = $helperUri.Substring(0, $helperUri.LastIndexOf("/"))
-$helperUri += "/scripts"
-write-host "helper script base URI is $helperUri"
+.EXAMPLE
+.\Install-DeveloperPC.ps1
 
-if (-not (Test-Path env:ChocolateyToolsLocation)) { $env:ChocolateyToolsLocation = 'C:\Utils' }
+.INPUTS
+None
 
-function executeScript {
-    Param ([string]$script)
-    write-host "executing $helperUri/$script ..."
-    iex ((new-object net.webclient).DownloadString("$helperUri/$script"))
+.OUTPUTS
+None
+
+.LINK
+https://github.com/elhub
+
+#>
+
+Write-Verbose "Installing/Upgrading Elhub DevBox..."
+# Install Chocolatey
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1"))
+# Run Scripts
+.\scripts\Setup-SystemConfiguration.ps1
+.\scripts\Set-WindowsExplorerOptions.ps1
+.\scripts\Remove-DefaultApps.ps1
+.\scripts\Install-CommonTools.ps1
+.\scripts\Install-WebBrowsers.ps1
+.\scripts\Install-WSL.ps1
+.\scripts\Install-JavaDevTools.ps1
+# Supplementary Packages
+if(test-path .\Install-PrivatePackages.ps1) {
+    .\Install-PrivatePackages.ps1
 }
 
+
+
 #--- Setting up Windows ---
-executeScript "Setup-SystemConfiguration.ps1";
-executeScript "Set-WindowsExplorerOptions.ps1";
-executeScript "Remove-DefaultApps.ps1";
-executeScript "Install-CommonTools.ps1";
-executeScript "Install-WebBrowsers.ps1";
-executeScript "Install-WSL.ps1";
-executeScript "Install-JavaDevTools.ps1";
 
 #--- reenabling critial items ---
 Enable-UAC

@@ -24,7 +24,9 @@ repair/update the settings and applications on your PC.
 
 ### Installing
 
-To run a recipe, simply click the corresponding link in the table below on your target machine. This will download
+#### Boxstarter
+
+To run a boxstarter recipe, simply click the corresponding link in the table below on your target machine. This will download
 the Boxstarter application, and prompt you to run with Administrator privileges. You can then leave the machine to
 work for a while and come back when it's finished.
 
@@ -32,9 +34,16 @@ To run a recipe script, click a link in the table below from your target machine
 
 |Click link to run  |Description  |
 |---------|---------|
-|<a href='http://boxstarter.org/package/url?https://raw.githubusercontent.com/elhub/windows-dev-box/master/Install-DevBox.ps1'>Elhub DevBox</a>     | Java Development Environment for Windows (JDK, IntelliJ IDEA, etc) |
+|<a href='http://boxstarter.org/package/url?https://raw.githubusercontent.com/elhub/windows-dev-box/master/Install-Boxstarter.ps1'>Elhub DevBox</a>     | Java Development Environment for Windows (JDK, IntelliJ IDEA, etc) |
 
-**Further Steps**
+#### PowerShell
+
+1. Download or clone the repository from Github.
+2. If you have not enabled this previously to allow for running unsigned Powershell scripts, change the execution policy:
+set-executionpolicy remotesigned --force
+3. Run Install-DevBox.ps1
+
+#### Post-Installation
 
 1. The file setup installs WSL with Ubuntu, but the default installation only sets up a root user with a blank
 password. You must manually create a non-root user via `$ sudo adduser [USERNAME] sudo` with a non-blank password.
