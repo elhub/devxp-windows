@@ -34,6 +34,8 @@ To run a recipe script, click a link in the table below from your target machine
 |---------|---------|
 |<a href='http://boxstarter.org/package/url?https://raw.githubusercontent.com/elhub/windows-dev-box/master/Install-DevBox.ps1'>Elhub DevBox</a>     | Java Development Environment for Windows (JDK, IntelliJ IDEA, etc) |
 
+If you are running a PC without a local administrator account with own login, it would be better to download the powershell scripts and run Install-DevPC.ps1
+
 **Further Steps**
 
 1. The file setup installs WSL with Ubuntu, but the default installation only sets up a root user with a blank
@@ -51,5 +53,4 @@ password when the PC is restarted during the install process.
 
 ### Todos
 
-* Some packages should perhaps not be upgraded through Chocolatey; e.g., IntelliJ has some
-issues, etc. Anything that will auto-update can possible 
+* Some packages should perhaps not be upgraded through Chocolatey; e.g., IntelliJ has some issues, etc. Anything that will auto-update can be updated in its own application and should be taken off chocolatey upgrades.
