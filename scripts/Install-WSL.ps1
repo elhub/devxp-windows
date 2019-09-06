@@ -6,7 +6,7 @@ If(!(test-path $cachePath))
 }
 
 # Install Windows Subsystem for Linux
-choco upgrade -cache $cachePath -y Microsoft-Windows-Subsystem-Linux --source="'windowsfeatures'"
+choco install -cache $cachePath -y Microsoft-Windows-Subsystem-Linux --source="'windowsfeatures'"
 
 #--- Ubuntu ---
 # TODO: Move this to choco install once --root is included in that package

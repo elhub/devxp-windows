@@ -41,7 +41,10 @@ To run a recipe script, click a link in the table below from your target machine
 1. Download or clone the repository from Github.
 2. If you have not enabled this previously to allow for running unsigned Powershell scripts, change the execution policy:
 set-executionpolicy remotesigned --force
-3. Run Install-DevBox.ps1
+3. Start Powershell as a user with local administrative rights 
+4. Run .\Install-DevBox.ps1
+   1. You can safely ignore errors during the deletion of default apps (caused by those apps not being installed on the server)
+   2. Restart the machine if required 
 
 #### Post-Installation
 
@@ -49,7 +52,7 @@ set-executionpolicy remotesigned --force
 password. You must manually create a non-root user via `$ sudo adduser [USERNAME] sudo` with a non-blank password.
 Use this user going forward. For more info on WSL please refer to the [documentation](https://docs.microsoft.com/en-us/windows/wsl/about).
 2. Set up VPN connections as described in your welcome e-mail.
-3. If you have installed licensed software, contact your manager to have your user license  egistered.
+3. If you have installed licensed software, contact your manager to have your user license registered.
 
 ### Known Issues
 
