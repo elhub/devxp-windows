@@ -43,7 +43,7 @@ If you cannot use Boxstarter, run the Install-DevBox powershell script directly.
 1. Download or clone the repository from Github.
 2. Start Powershell as a user with administrative rights 
 3. If you have not enabled this previously to allow for running unsigned Powershell scripts, change the execution policy:
-set-executionpolicy remotesigned --force
+set-executionpolicy remotesigned
 4. Run .\Install-DevBox.ps1
    1. You can safely ignore all the errors caused by the script trying to delete apps which are not present
    2. Restart the machine if required 
