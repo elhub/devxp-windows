@@ -1,12 +1,12 @@
 <#
 .SYNOPSIS
-Install/Upgrade Script for Elhub Developer PCs
+Install/Upgrade Script for Elhub Developer Boxes
 
 .DESCRIPTION
 This script installs and upgrades a standard Elhub DevBox.
 
 .EXAMPLE
-.\Install-DeveloperPC.ps1
+.\Install-DevBox.ps1
 
 .INPUTS
 None
@@ -28,18 +28,9 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 .\scripts\Remove-DefaultApps.ps1
 .\scripts\Install-CommonTools.ps1
 .\scripts\Install-WebBrowsers.ps1
-.\scripts\Install-WSL.ps1
+# .\scripts\Install-WSL.ps1 - Too time-consuming
 .\scripts\Install-JavaDevTools.ps1
 # Supplementary Packages
 if(test-path .\Install-PrivatePackages.ps1) {
     .\Install-PrivatePackages.ps1
 }
-
-
-
-#--- Setting up Windows ---
-
-#--- reenabling critial items ---
-Enable-UAC
-Enable-MicrosoftUpdate
-Install-WindowsUpdate -acceptEula

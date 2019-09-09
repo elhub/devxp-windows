@@ -38,17 +38,20 @@ To run a recipe script, click a link in the table below from your target machine
 
 #### PowerShell
 
+If you cannot use Boxstarter, run the Install-DevBox powershell script directly.
+
 1. Download or clone the repository from Github.
-2. If you have not enabled this previously to allow for running unsigned Powershell scripts, change the execution policy:
+2. Start Powershell as a user with administrative rights 
+3. If you have not enabled this previously to allow for running unsigned Powershell scripts, change the execution policy:
 set-executionpolicy remotesigned --force
-3. Start Powershell as a user with local administrative rights 
 4. Run .\Install-DevBox.ps1
-   1. You can safely ignore errors during the deletion of default apps (caused by those apps not being installed on the server)
+   1. You can safely ignore all the errors caused by the script trying to delete apps which are not present
    2. Restart the machine if required 
+   3. Downloading and install Ubuntu for WSL can take some time.
 
 #### Post-Installation
 
-1. The file setup installs WSL with Ubuntu, but the default installation only sets up a root user with a blank
+1. The DevBox script currently does not install Windows-Subsystem-for-Linux and the Ubuntu image (the Install-WSL.ps1 script does this).  The file setup installs WSL with Ubuntu, but the default installation only sets up a root user with a blank
 password. You must manually create a non-root user via `$ sudo adduser [USERNAME] sudo` with a non-blank password.
 Use this user going forward. For more info on WSL please refer to the [documentation](https://docs.microsoft.com/en-us/windows/wsl/about).
 2. Set up VPN connections as described in your welcome e-mail.
@@ -63,5 +66,4 @@ password when the PC is restarted during the install process.
 
 ### Todos
 
-* Some packages should perhaps not be upgraded through Chocolatey; e.g., IntelliJ has some
-issues, etc. Anything that will auto-update can possible 
+* Some packages should perhaps not be upgraded through Chocolatey; e.g., IntelliJ IDEA has some unintended behavior with Chocolatey, whereby new versions get installed in parallel with the existing version.
