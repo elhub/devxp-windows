@@ -11,3 +11,4 @@ choco upgrade -cache $cachePath -y python3 --installargs='TargetDir=""C:\Program
 choco upgrade -cache $cachePath -y atom
 choco upgrade -cache $cachePath -y 7zip
 choco upgrade -cache $cachePath -y sysinternals
+choco upgrade -cache $cachePath -y keepass
