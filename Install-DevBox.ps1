@@ -30,6 +30,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 .\scripts\Install-WebBrowsers.ps1
 # .\scripts\Install-WSL.ps1 - Too time-consuming
 .\scripts\Install-JavaDevTools.ps1
+#.\scripts\Install-PlatformTools.ps1
 # Supplementary Packages
 if(test-path .\Install-PrivatePackages.ps1) {
     .\Install-PrivatePackages.ps1
