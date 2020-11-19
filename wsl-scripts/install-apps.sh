@@ -6,16 +6,20 @@ source ./script-utils.sh
 keep_sudo_alive
 
 # Update Ubuntu
-sudo apt update
+sudo add-apt-repository -y ppa:git-core/ppa
+sudo add-apt-repository -y ppa:ansible/ansible
+sudo apt update -y
 sudo apt upgrade -y
 
 # Essential package
 sudo apt -y install build-essential
 
 # Git
-sudo add-apt-repository -y ppa:git-core/ppa
-sudo apt -y update
 sudo apt -y install git
+
+# Python
+sudo apt -y install python-apt
+sudo apt -y install python-lxml
 
 # PHP
 sudo apt -y install php7.4
@@ -24,6 +28,13 @@ sudo apt -y install php7.4-xml
 
 # Java
 sudo apt -y install openjdk-8-jdk
+
+# Ansible
+sudo apt -y install ansible
+
+# Utils
+sudo apt -y install curl
+sudo apt -y install nano
 
 # WSL Utilities
 # See https://github.com/wslutilities/wslu
