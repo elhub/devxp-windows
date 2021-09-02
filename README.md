@@ -1,12 +1,39 @@
-# windows-dev-box
+# dev-tools-windows
 
-This repository contains scripts used to deploy and upgrade an Elhub Windows developer PC.
+[<img src="https://img.shields.io/badge/repo-github-blue" alt="">](https://github.com/elhub/dev-tools-windows)
+[<img src="https://img.shields.io/badge/issues-jira-orange" alt="">](https://jira.elhub.cloud/issues/?jql=project%20%3D%20%22Team%20Dev%22%20AND%20component%20%3D%20dev-tools-windows%20AND%20status%20!%3D%20Done)
+[<img src="https://teamcity.elhub.cloud/app/rest/builds/buildType:(id:Tools_DevToolsWindows_PublishDocs)/statusIcon" alt="">](https://teamcity.elhub.cloud/buildConfiguration/Tools_DevToolsWindows_PublishDocs)
+[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.tools%3Adev-tools-windows&metric=alert_status" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.tools%3Adev-tools-windows)
+[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.tools%3Adev-tools-windows&metric=ncloc" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.tools%3Adev-tools-windows)
+[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.tools%3Adev-tools-windows&metric=bugs" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.tools%3Adev-tools-windows)
+[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.tools%3Adev-tools-windows&metric=vulnerabilities" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.tools%3Adev-tools-windows)
+[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.test%3Adev-tools-windows&metric=coverage" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.test%3Adev-tools-windows)
 
-These scripts are inspired by the [Microsoft Windows Dev Box setup scripts](https://github.com/microsoft/windows-dev-box-setup-scripts) and 
-leverages the popular open source projects Chocolatey [chocolatey.org](http://chocolatey.org)
 
-The scripts are intended to be idempotent; i.e., you should be able to rerun these scripts at any time to repair/update the settings and applications on your
-PC. 
+## Table of Contents
+
+* [About](#about)
+* [Getting Started](#getting-started)
+   * [Prerequisites](#prerequisites)
+   * [Installation](#installation)
+* [Usage](#usage)
+* [Testing](#testing)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [Owners](#owners)
+* [License](#license)
+
+
+## About
+
+This repository contains scripts used to install and upgrade Windows tools and applications on an Elhub developer PC.
+
+These scripts are inspired by the [Microsoft Windows Dev Box setup scripts](https://github.com/microsoft/windows-dev-box-setup-scripts)
+and leverages the popular open source projects Chocolatey [chocolatey.org](http://chocolatey.org).
+
+The scripts are intended to be idempotent; i.e., you should be able to rerun these scripts at any time to repair/update
+the settings and applications on your PC.
+
 
 ## Getting started
 
@@ -18,35 +45,49 @@ PC.
 
 ### Installing
 
-#### PowerShell
-
-To install, run the Install-DevBox powershell script directly.
+To install, run the Install-DevTools powershell script directly.
 
 1. Download or clone the repository from Github.
 2. Start Powershell as a user with administrative rights 
-3. If you have not enabled this previously to allow for running unsigned Powershell scripts, change the execution policy:
-set-executionpolicy remotesigned
-4. Run .\Install-DevBox.ps1
-   1. You can safely ignore all the errors caused by the script trying to delete apps which are not present
-   2. Restart the machine if required 
+3. If you have not enabled this previously to allow for running unsigned Powershell scripts, change the execution policy: set-executionpolicy unrestricted
+4. Run .\Install-DevTools.ps1
+5. Restart the machine if required (it should not be necessary, but is always a good idea after so many changes)
 
-#### Post-Installation
 
-1. The DevBox script currently does not install Windows-Subsystem-for-Linux and the Ubuntu image (the Install-WSL.ps1 script does this). Installing 
-WSL takes a massive amount of time to download and install, making this easier to do manually. See
-https://confluence.elhub.org/display/ELTOR/Getting+Started+on+Eltostratus for details
-2. Set up VPN connections as described in your welcome e-mail. This means you need to install the OPENVPN GUI and Cisco AnyConnect manually.
-3. If you have installed licensed software, contact your manager to have your user license registered. 
+## Usage
 
-### Known Issues
+This project installs and/or upgrades a large number of Windows applications and tools. Notable apps
 
-* Boxstarter's autologin doesn't work properly with multiple user accounts (see https://github.com/chocolatey/boxstarter/issues/318).
-As a  result, the user currently needs to login manually as local admin with password when the PC is restarted during the install process.
-* Does not work to setup Statnett PC's.
+### Chocolatey GUI
 
-### Todos
+A graphical UI to Chocolatey. Can be used to search for and/or install apps through chocolatey manually. Run as local
+administrator.
 
-* Some packages should perhaps not be upgraded through Chocolatey; e.g., IntelliJ IDEA currently has some unintended behavior with Chocolatey, whereby new 
-versions get installed in parallel with the existing version rather than replacing them.
-* There is an experimental script for this project that uses BoxStarter (Boxstarter is a wrapper for Chocolatey that handles features like managing reboots and
-other issues). Unfortunately, the current development box that we receive from Statnett does not support usage of Boxstarter.
+
+## Testing
+
+N/A.
+
+
+## Roadmap
+
+See the issues list for proposed feature and issues.
+* [Github issues](https://github.com/elhub/dev-tools-windows/issues)
+* [Elhub Jira](https://jira.elhub.cloud/issues/?jql=project%20%3D%20TD%20AND%20component%20%3D%20dev-tools-windows%20AND%20resolution%20%3D%20Unresolved)
+
+
+## Contributing
+
+Contributing, issues and feature requests are welcome. See the
+[Contributing](https://github.com/elhub/dev-tools-windows/blob/main/CONTRIBUTING.md) file.
+
+
+## Owners
+
+This project is developed by [Elhub](https://elhub.no). For the specific development group responsible for this
+code, see the [Codeowners](https://github.com/elhub/dev-tools-windows/blob/main/CODEOWNERS) file.
+
+
+## License
+
+This project is [MIT](https://github.com/elhub/dev-tools-windows/blob/main/LICENSE.md) licensed.

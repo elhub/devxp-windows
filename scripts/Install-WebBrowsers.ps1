@@ -1,10 +1,4 @@
-# Set cache path for Chocolatey
-$cachePath = "C:\Temp\"
-If(!(test-path $cachePath))
-{
-    New-Item -ItemType Directory -Force -Path $cachePath
-}
-
+# Set cache path
+$cachePath = Set-TempDirectory
 # Install Browsers and Test Drivers
-choco upgrade -cache $cachePath -y googlechrome
-choco upgrade -cache $cachePath -y firefox
+choco upgrade -cache $cachePath -y googlechrome firefox
