@@ -10,11 +10,11 @@ import no.elhub.common.build.configuration.ProjectType
 import no.elhub.common.build.configuration.PublishDocs
 import no.elhub.common.build.configuration.SonarScan
 
-version = "2021.1"
+version = "2021.2"
 
 project {
 
-    val projectId = "no.elhub.tools:dev-tools-windows"
+    val projectId = "no.elhub.devxp:devxp-windows"
     val projectType = ProjectType.GENERIC
     val artifactoryRepository = "elhub-bin-release-local"
 
@@ -40,7 +40,7 @@ project {
                 PublishDocs.Config(
                     vcsRoot = DslContext.settingsRoot,
                     type = projectType,
-                    dest = "tools/dev-tools-windows"
+                    dest = "devxp/devxp-windows"
                 )
             ) {
                 triggers {

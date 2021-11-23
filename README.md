@@ -1,14 +1,13 @@
-# dev-tools-windows
+# devxp-windows
 
-[<img src="https://img.shields.io/badge/repo-github-blue" alt="">](https://github.com/elhub/dev-tools-windows)
-[<img src="https://img.shields.io/badge/issues-jira-orange" alt="">](https://jira.elhub.cloud/issues/?jql=project%20%3D%20%22Team%20Dev%22%20AND%20component%20%3D%20dev-tools-windows%20AND%20status%20!%3D%20Done)
-[<img src="https://teamcity.elhub.cloud/app/rest/builds/buildType:(id:Tools_DevToolsWindows_PublishDocs)/statusIcon" alt="">](https://teamcity.elhub.cloud/buildConfiguration/Tools_DevToolsWindows_PublishDocs)
-[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.tools%3Adev-tools-windows&metric=alert_status" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.tools%3Adev-tools-windows)
-[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.tools%3Adev-tools-windows&metric=ncloc" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.tools%3Adev-tools-windows)
-[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.tools%3Adev-tools-windows&metric=bugs" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.tools%3Adev-tools-windows)
-[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.tools%3Adev-tools-windows&metric=vulnerabilities" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.tools%3Adev-tools-windows)
-[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.test%3Adev-tools-windows&metric=coverage" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.test%3Adev-tools-windows)
-
+[<img src="https://img.shields.io/badge/repo-github-blue" alt="">](https://github.com/elhub/devxp-windows)
+[<img src="https://img.shields.io/badge/issues-jira-orange" alt="">](https://jira.elhub.cloud/issues/?jql=project%20%3D%20%22Team%20Dev%22%20AND%20component%20%3D%20devxp-windows%20AND%20status%20!%3D%20Done)
+[<img src="https://teamcity.elhub.cloud/app/rest/builds/buildType:(id:DevXp_DevXpWindows_PublishDocs)/statusIcon" alt="">](https://teamcity.elhub.cloud/project/DevXp_DevXpWindows?mode=builds#all-projects)
+[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.devxp%3Adevxp-windows&metric=alert_status" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.devxp%3Adevxp-windows)
+[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.devxp%3Adevxp-windows&metric=ncloc" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.devxp%3Adevxp-windows)
+[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.devxp%3Adevxp-windows&metric=bugs" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.devxp%3Adevxp-windows)
+[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.devxp%3Adevxp-windows&metric=vulnerabilities" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.devxp%3Adevxp-windows)
+[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.devxp%3Adevxp-windows&metric=coverage" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.devxp%3Adevxp-windows)
 
 ## Table of Contents
 
