@@ -7,60 +7,38 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.v2019_2.version
 import no.elhub.devxp.build.configuration.CodeReview
 import no.elhub.devxp.build.configuration.ProjectType
-import no.elhub.devxp.build.configuration.PublishDocs
 import no.elhub.devxp.build.configuration.SonarScan
 
 version = "2022.04"
 
 project {
-
-    val projectId = "no.elhub.devxp:devxp-windows"
+    val projectName = "devxp-windows"
+    val projectId = "no.elhub.devxp:$projectName"
     val projectType = ProjectType.GENERIC
-    val artifactoryRepository = "elhub-bin-release-local"
 
     params {
         param("teamcity.ui.settings.readOnly", "true")
     }
 
-    val buildChain = sequential {
+    val sonarScanConfig = SonarScan.Config(
+        vcsRoot = DslContext.settingsRoot,
+        type = projectType,
+        sonarId = projectId,
+        sonarProjectSources = "scripts"
+    )
 
-        buildType(
-            SonarScan(
-                SonarScan.Config(
-                    vcsRoot = DslContext.settingsRoot,
-                    type = projectType,
-                    sonarId = projectId,
-                    sonarProjectSources = "."
-                )
-            )
-        )
-
-        buildType(
-            PublishDocs(
-                PublishDocs.Config(
-                    vcsRoot = DslContext.settingsRoot,
-                    type = projectType,
-                    dest = "devxp/devxp-windows"
-                )
-            ) {
-                triggers {
-                    vcs {
-                        branchFilter = "+:<default>"
-                        quietPeriodMode = VcsTrigger.QuietPeriodMode.USE_DEFAULT
-                    }
-                }
-            })
+    val sonarScan = SonarScan(sonarScanConfig) {
 
     }
 
-    buildChain.buildTypes().forEach { buildType(it) }
+    listOf(sonarScan).forEach { buildType(it) }
 
     buildType(
         CodeReview(
             CodeReview.Config(
                 vcsRoot = DslContext.settingsRoot,
                 type = projectType,
-                sonarId = projectId
+                sonarScanConfig = sonarScanConfig,
             )
         )
     )
